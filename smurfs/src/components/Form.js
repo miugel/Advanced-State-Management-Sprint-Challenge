@@ -28,7 +28,7 @@ const Form = props => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} autoComplete='off'>
             <label htmlFor='name'>Name</label>
             <input type='text' name='name' value={name} onChange={nameOnChange}/>
 
