@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
-}
+import React from 'react';
+import {connect} from 'react-redux';
+import {getData} from '../actions/Actions';
+import Smurfs from './Smurfs';
 
-export default App;
+const App = props => {
+	return (
+		<div className="App">
+			<button onClick={() => props.getData()}>Fetch Smurfs</button>
+			<Smurfs/>
+		</div>
+	);
+};
+
+export default connect(null, {getData})(App);
