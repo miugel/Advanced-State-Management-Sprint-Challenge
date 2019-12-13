@@ -10,3 +10,7 @@ export const getData = () => dispatch => {
             dispatch({type: 'ERROR', payload: error});
         });
 };
+
+export const postData = () => {
+    
+}

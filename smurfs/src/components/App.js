@@ -1,15 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {getData} from '../actions/Actions';
+import Form from './Form';
+import Button from './Button';
 import Smurfs from './Smurfs';
 
 const App = props => {
 	return (
 		<div className="App">
-			<button onClick={() => props.getData()}>Fetch Smurfs</button>
+			<Form/>
+			<Button/>
 			<Smurfs/>
 		</div>
 	);
 };
 
-export default connect(null, {getData})(App);
+export default App;

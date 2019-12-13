@@ -4,14 +4,16 @@ import {connect} from 'react-redux';
 const Smurfs = props => {
     return (
         <div>
+            {props.fetching && <p>Loading</p>}
             {props.data.length === 0 ? <p>No smurfs fetched yet</p> : props.data.map(item => (
                 <>
-                    <h4>Smurf {item.id + 1}</h4>
-                    <p>{item.name}</p>
-                    <p>{item.age}</p>
-                    <p>{item.height}</p>
+                    <h3>Smurf {item.id + 1}</h3>
+                    <p>Name: {item.name}</p>
+                    <p>Age: {item.age}</p>
+                    <p>Height: {item.height}</p>
                 </>
             ))}
+            {props.error && <p>There was an error</p>}
         </div>
     );
 };
@@ -20,7 +22,9 @@ const Smurfs = props => {
 
 const mapStateToProps = state => {
     return {
-        data: state.data
+        data: state.data,
+        fetching: state.fetching,
+        error: state.error
     }
 };
 
