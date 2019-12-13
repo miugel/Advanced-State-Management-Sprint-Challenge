@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {postData} from '../actions/Actions';
 
 const Form = props => {
     const [name, setName] = useState('');
@@ -19,7 +21,7 @@ const Form = props => {
 
     const onSubmit = event => {
         event.preventDefault();
-
+        props.postData({name, age, height});
         setName('');
         setAge('');
         setHeight('');
@@ -27,15 +29,18 @@ const Form = props => {
 
     return (
         <form onSubmit={onSubmit}>
-            <label for='name'>Name</label>
+            <label htmlFor='name'>Name</label>
             <input type='text' name='name' value={name} onChange={nameOnChange}/>
-            <label for='age'>Age</label>
+
+            <label htmlFor='age'>Age</label>
             <input type='text' name='age' value={age} onChange={ageOnChange}/>
-            <label for='height'>Height</label>
+
+            <label htmlFor='height'>Height</label>
             <input type='text' name='height' value={height} onChange={heightOnChange}/>
+
             <button type='submit'>Submit</button>
         </form>
     );
 };
 
-export default Form;
+export default connect(null, {postData})(Form);

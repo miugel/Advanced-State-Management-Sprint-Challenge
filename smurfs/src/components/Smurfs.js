@@ -6,12 +6,12 @@ const Smurfs = props => {
         <div>
             {props.fetching && <p>Loading</p>}
             {props.data.length === 0 ? <p>No smurfs fetched yet</p> : props.data.map(item => (
-                <>
+                <div key={item.id}>
                     <h3>Smurf {item.id + 1}</h3>
                     <p>Name: {item.name}</p>
                     <p>Age: {item.age}</p>
                     <p>Height: {item.height}</p>
-                </>
+                </div>
             ))}
             {props.error && <p>There was an error</p>}
         </div>

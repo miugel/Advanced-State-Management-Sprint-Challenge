@@ -3,7 +3,7 @@ import Form from './Form';
 import Button from './Button';
 import Smurfs from './Smurfs';
 
-const App = props => {
+const App = () => {
 	return (
 		<div className="App">
 			<Form/>
